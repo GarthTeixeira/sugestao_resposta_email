@@ -1,0 +1,11 @@
+node_modules/
+my_env/
+notebooks/
+tests/
+__pycache__/
+pyvenv.cfg
+.vscode/
+.gitignore
+package-lock.json
+package.json
+tailwind.config.js

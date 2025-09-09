@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block titulo %}Fazer Pergunta{% endblock %}
+
+{% block conteudo %}
+  <h1 class="text-2xl font-bold mb-6 text-center font-orbitron">Sugestão de resposta ao Email</h1>
+  <form id="email-form" method="POST" enctype="multipart/form-data" class="flex flex-col flex-1">
+    <!-- Campos fixos -->
+    <div class="space-y-4 mb-4">
+      <div>
+        <label class="block mb-1 font-medium">Autor</label>
+        <input type="text" name="autor" required class="w-full p-2 border rounded-lg" />
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Assunto</label>
+        <input type="text" name="assunto" required class="w-full p-2 border rounded-lg" />
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Remetente</label>
+        <input type="text" name="remetente" required class="w-full p-2 border rounded-lg" />
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Mensagem do e-mail</label>
+      </div>
+    </div>
+
+    <!-- Radios -->
+    <div class="flex gap-6 mb-4">
+      <label class="flex items-center gap-2">
+        <input type="radio" name="modo" value="upload" checked>
+        <span class="text-sm font-medium">Upload (.pdf ou .txt)</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="radio" name="modo" value="message">
+        <span class="text-sm font-medium">Mensagem de Texto</span>
+      </label>
+    </div>
+
+    <!-- Painel Upload -->
+    <div id="panel-upload">
+      <input type="file" name="arquivo" accept=".pdf,.txt" class="w-full p-2 border rounded-lg">
+    </div>
+
+    <!-- Painel Mensagem -->
+    <div id="panel-message" class="hidden flex-col flex-1 mt-2">
+      <textarea name="mensagem" rows="4" class="w-full p-2 border rounded-lg flex-1 resize-none"></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-lg mt-4">
+      Enviar
+    </button>
+  </form>
+{% endblock %}

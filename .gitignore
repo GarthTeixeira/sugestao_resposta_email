@@ -1,0 +1,12 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+.vercel
+.vscode
+node_modules
+__pycache__
+my_env/
+venv/
+
+notebooks/.ipynb_checkpoints
+notebooks/emails_produtivo_improdutivo.csv
+notebooks/modelo_treinado.ipynb

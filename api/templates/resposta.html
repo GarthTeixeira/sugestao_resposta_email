@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block titulo %}Resposta da Sugerida{% endblock %}
+{% block conteudo %}
+    
+    <h1 class="text-xl font-bold mb-4">Classificação</h1>
+     <div class="
+            {% if classificacao == 'Produtivo' %}
+              bg-green-200 text-green-800
+            {% elif classificacao == 'Improdutivo' %}
+              bg-orange-200 text-orange-800
+            {% else %}
+              bg-gray-200 text-gray-800
+            {% endif %}
+            p-3 rounded
+          ">
+            <p> O email foi classificado como: <strong>{{ classificacao }}</strong> </p>
+          </div>
+    <h1 class="text-xl font-bold mb-4">Resposta da Sugerida</h1>
+    <p class="whitespace-pre-line">{{ resposta }}</p>
+   <button>
+        <a href="{{ url_for('formulario') }}" class="w-full bg-blue-600 text-white p-2 rounded-lg mt-4 text-center block">
+            Voltar ao Formulário
+        </a>
+   </button>
+
+{% endblock %}

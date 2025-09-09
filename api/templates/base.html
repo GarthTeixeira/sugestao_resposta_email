@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block titulo %}Formulário de Email{% endblock %}</title>
+  <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6 md:h-auto flex justify-center flex-col items-center font-grotesk">
+
+  <div id="container" class="max-w-xl w-full bg-white p-6 rounded-xl shadow-lg flex flex-col h-full">
+    {% block conteudo %}{% endblock %}
+  </div>
+  <script>
+  const body = document.body;
+  const radios = document.querySelectorAll('input[name="modo"]');
+  const panelUpload = document.getElementById('panel-upload');
+  const panelMessage = document.getElementById('panel-message');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'upload' && radio.checked) {
+        panelUpload.classList.remove('hidden');
+        panelMessage.classList.add('hidden');
+        panelMessage.classList.remove('flex');
+        body.classList.remove('h-screen');
+      } else if (radio.value === 'message' && radio.checked) {
+        panelUpload.classList.add('hidden');
+        panelMessage.classList.remove('hidden');
+        panelMessage.classList.add('flex');
+        body.classList.add('h-screen');
+      }
+    });
+  });
+</script>
+</body>
+</html>

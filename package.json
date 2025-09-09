@@ -1,0 +1,21 @@
+{
+  "name": "autouproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:css:watch": "tailwindcss -i ./api/static/css/style.css -o ./api/static/css/output.css --watch",
+    "vercel-build": "npm run build:css",
+    "build:css": "tailwindcss -i ./api/static/css/style.css -o ./api/static/css/output.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17",
+    "vercel": "^47.0.5"
+  },
+  "dependencies": {
+    "flowbite": "^3.1.2"
+  }
+}
