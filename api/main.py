@@ -2,6 +2,13 @@ import os
 import sys
 sys.path.append(os.path.dirname(__file__))
 
+from pathlib import Path
+
+# Adiciona o diretório raiz do projeto ao sys.path
+project_root = Path(__file__).parent.parent  # ou Path.cwd() se estiver no notebook
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 from flask import Flask, request, render_template, redirect, url_for, flash, session
 from scripts.emailProcessor import EmailProcessor
 from scripts.emailCassifier import EmailCassifier
@@ -19,7 +26,8 @@ app.secret_key = secrets.token_hex(16)
 
 processor = EmailProcessor()
 #Para usar o classificador local, descomente a linha abaixo
-#classifier = EmailCassifier(model_path="api/models/email_classifier_pt.pkl")
+model_path = project_root / "models" / "email_classifier_pt.pkl"
+#classifier = EmailCassifier(model_path=str(model_path))
 responder = EmailResponder(provieder="fireworks-ai", api_key=os.environ.get("HF_API_TOKEN"))
 
 inicial_model = "openai/gpt-oss-120b" 
