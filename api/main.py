@@ -14,6 +14,7 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = secrets.token_hex(16)
 
 processor = EmailProcessor()
+#Para usar o classificador local, descomente a linha abaixo
 #classifier = EmailCassifier(model_path="api/models/email_classifier_pt.pkl")
 responder = EmailResponder(provieder="fireworks-ai", api_key=os.environ.get("HF_API_TOKEN"))
 
@@ -51,8 +52,9 @@ def formulario():
 
         categoria = None
         if texto_pre_processado:
-            #categoria = classifier.classificar(texto_pre_processado)
             categoria = responder.classificar(texto_pre_processado, inicial_model)
+            # Para usar o classificador local, descomente a linha abaixo e comente a de cima
+            #categoria = classifier.classificar(texto_pre_processado)
             
         email_info = EmailInfo(
                 autor=autor,

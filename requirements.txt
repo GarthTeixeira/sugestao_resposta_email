@@ -4,3 +4,4 @@ pdfplumber == 0.11.7
 huggingface-hub == 0.34.3
 papermill == 2.6.0
 ipykernel == 6.30.1
+pandas == 2.3.2
