@@ -54,7 +54,17 @@ papermill notebooks/generate_model.ipynb notebooks/modelo_treinado.ipynb --cwd n
 npm run build:css
 ```
 
-## 🚀 7. Rodar a Aplicação Localmente
+## 🔑 7. Adicionar token da API do Hugging Face
+
+Crie um arquivo `.env` na raiz do projeto e adicione sua chave de acesso da Hugging Face:
+
+```env
+HF_TOKEN=seu_token_aqui
+```
+
+Você pode obter o token em [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
+
+## 🚀 8. Rodar a Aplicação Localmente
 
 ```bash
 python api/main.py

@@ -7,8 +7,12 @@ from scripts.emailProcessor import EmailProcessor
 from scripts.emailCassifier import EmailCassifier
 from scripts.emailResponder import EmailResponder
 from scripts.emailInfoFactory import EmailInfo
+from dotenv import load_dotenv
+
 import secrets
 
+# Carrega variáveis do arquivo .env
+load_dotenv()
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = secrets.token_hex(16)

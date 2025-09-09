@@ -7,6 +7,8 @@ __pycache__
 my_env/
 venv/
 
+.env
+
 notebooks/.ipynb_checkpoints
 notebooks/emails_produtivo_improdutivo.csv
 notebooks/modelo_treinado.ipynb
