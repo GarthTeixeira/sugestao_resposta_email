@@ -57,7 +57,7 @@ npm run build:css
 ## 🚀 7. Rodar a Aplicação Localmente
 
 ```bash
-python api/app.py
+python api/main.py
 ```
 
 Pronto! Acesse a aplicação em `http://localhost:5000` (ou conforme configurado).
